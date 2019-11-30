@@ -13,7 +13,7 @@ import java.util.ArrayList;
 public class RestApiManager {
 
     @Autowired
-    private RequestProcessor requestProcessorImpl;
+    private RequestProcessor requestProcessor;
 
 
     @GetMapping(value = "/tweets", produces = MediaType.APPLICATION_JSON_VALUE)
@@ -21,6 +21,7 @@ public class RestApiManager {
             @RequestParam(name = "source") String source,
             @RequestParam(name = "resultType", defaultValue = "mixed") String resultType
             ) throws Exception{
-        return requestProcessorImpl.getTweets(source, resultType);
+
+        return requestProcessor.getTweets(source, resultType);
     }
 }
