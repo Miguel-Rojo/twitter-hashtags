@@ -2,7 +2,9 @@ package twitter.hashtags.manager;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
-import org.springframework.web.bind.annotation.*;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.RestController;
 import twitter.hashtags.core.RequestProcessor;
 
 import java.util.ArrayList;
@@ -11,15 +13,14 @@ import java.util.ArrayList;
 public class RestApiManager {
 
     @Autowired
-    private RequestProcessor requestProcessor;
+    private RequestProcessor requestProcessorImpl;
 
-    @RequestMapping("/")
-    public String index() {
-        return "Greetings from Spring Boot!";
-    }
 
     @GetMapping(value = "/tweets", produces = MediaType.APPLICATION_JSON_VALUE)
-    public ArrayList getTweets(@RequestParam String source) throws Exception{
-        return requestProcessor.getTweets(source);
+    public ArrayList getTweets(
+            @RequestParam(name = "source") String source,
+            @RequestParam(name = "resultType", defaultValue = "mixed") String resultType
+            ) throws Exception{
+        return requestProcessorImpl.getTweets(source, resultType);
     }
 }

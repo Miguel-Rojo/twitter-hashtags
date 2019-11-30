@@ -8,5 +8,7 @@ public final class TwitterConstants {
 
     public static String SEARCH_API_PATH="search/tweets.json";
 
-    public static String QUERY_PARAMETER="q";
+    public static String BASE_QUERY_PARAMETER ="q";
+
+    public static String RESULT_TYPE_QUERY_PARAMETER ="result_type";
 }
