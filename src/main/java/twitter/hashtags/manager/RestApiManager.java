@@ -21,7 +21,6 @@ public class RestApiManager {
             @RequestParam(name = "source") String source,
             @RequestParam(name = "resultType", defaultValue = "mixed") String resultType
             ) throws Exception{
-
         return requestProcessor.getTweets(source, resultType);
     }
 }
