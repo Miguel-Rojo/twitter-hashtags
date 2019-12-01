@@ -29,7 +29,6 @@ public class RequestProcessor {
     @Value("${twitter.access.token}")
     private String twitterAccessToken;
 
-
     public ArrayList getTweets(String expression, String resultType) throws IOException {
         validateInput(resultType);
         JSONObject response = fetchResponse(expression, resultType);
@@ -67,7 +66,7 @@ public class RequestProcessor {
                 .buildUrl(TwitterConstants.BASE_URL, TwitterConstants.SEARCH_API_PATH, queryParams)
                 .buildRequest(twitterAccessToken, HttpMethod.GET.toString(), null)
                 .fetchJSONResponse(expectedResponseCodes);
-        
+
     }
 
     private void validateInput(String resultType) {

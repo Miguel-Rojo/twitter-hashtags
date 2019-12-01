@@ -29,5 +29,12 @@ dependencies {
     compile("org.springframework.boot:spring-boot-starter-web")
     compile group: 'com.squareup.okhttp3', name: 'okhttp', version: '3.2.0'
     compile 'org.json:json:20171018'
+    
     testCompile("junit:junit")
+    testCompile "org.mockito:mockito-core:2.7.19"
+    testImplementation 'org.junit.jupiter:junit-jupiter-api:5.3.1'
+    testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine:5.3.1'
+
+    testCompile group: 'org.powermock', name: 'powermock-api-mockito2', version: '1.7.1'
+    testCompile group: 'org.powermock', name: 'powermock-module-junit4', version: '1.7.1'
 }

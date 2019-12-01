@@ -4,7 +4,6 @@ import okhttp3.OkHttpClient;
 import okhttp3.Request;
 import okhttp3.RequestBody;
 import okhttp3.Response;
-import org.json.HTTP;
 import org.json.JSONObject;
 import org.springframework.http.HttpHeaders;
 import org.springframework.stereotype.Component;
@@ -14,7 +13,7 @@ import twitter.hashtags.exception.HttpConnectionException;
 
 import java.io.IOException;
 import java.nio.charset.StandardCharsets;
-import java.util.ArrayList;
+import java.util.List;
 import java.util.Map;
 
 @Component
@@ -58,7 +57,7 @@ public class HttpConnectionManager {
         return this;
     }
 
-    public JSONObject fetchJSONResponse(ArrayList<Integer> expectedResponseCodes) throws HttpConnectionException, IOException {
+    public JSONObject fetchJSONResponse(List<Integer> expectedResponseCodes) throws HttpConnectionException, IOException {
         response = okHttpClient.newCall(request).execute();
 
         if (!expectedResponseCodes.contains(response.code()))
