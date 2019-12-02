@@ -11,4 +11,8 @@ public final class TwitterConstants {
     public static String BASE_QUERY_PARAMETER = "q";
 
     public static String RESULT_TYPE_QUERY_PARAMETER = "result_type";
+
+    public static String TWEET_MODE_QUERY_PARAMETER = "tweet_mode";
+
+    public static String EXTENDED_TWEET_MODE = "extended";
 }

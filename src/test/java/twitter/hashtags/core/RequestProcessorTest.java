@@ -59,7 +59,7 @@ public class RequestProcessorTest {
         });
     }
 
-    @Ignore("Getting random null pointer exception")
+    @Ignore("WIP : Mock object returning null instead of itself, need to figure out why")
     @Test
     public void testgetTweets() throws Exception{
         List<Tweet> tweets =  requestProcessor.getTweets("abc", "mixed");

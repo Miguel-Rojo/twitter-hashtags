@@ -45,7 +45,7 @@ public class RequestProcessor {
 
         statusArray.forEach(item -> {
             JSONObject obj = (JSONObject) item;              //org.json uses raw iterator, hence type conversion is required
-            Tweet tweet = new Tweet(obj.getString("text"));
+            Tweet tweet = new Tweet(obj.getString("full_text"));
             tweets.add(tweet);
         });
 
@@ -56,6 +56,7 @@ public class RequestProcessor {
         Map<String, String> queryParams = new HashMap<String, String>() {{
             put(TwitterConstants.BASE_QUERY_PARAMETER, expression);
             put(TwitterConstants.RESULT_TYPE_QUERY_PARAMETER, resultType);
+            put(TwitterConstants.TWEET_MODE_QUERY_PARAMETER, TwitterConstants.EXTENDED_TWEET_MODE);
         }};
 
         ArrayList<Integer> expectedResponseCodes = new ArrayList<Integer>() {{
